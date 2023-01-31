@@ -1,5 +1,5 @@
 import unittest
-from hw00 import LimerickDetector
+from limerick import LimerickDetector
 
 class TestSequenceFunctions(unittest.TestCase):
 
