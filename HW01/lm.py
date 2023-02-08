@@ -6,7 +6,6 @@ import argparse
 from numpy import mean
 
 import nltk
-nltk.download('treebank')
 from nltk import FreqDist
 from nltk.corpus import treebank
 from nltk.util import bigrams
@@ -27,8 +26,7 @@ class BigramLanguageModel:
     def __init__(self, unk_cutoff, jm_lambda=0.6, add_k=0.1,
                  katz_cutoff=5, kn_discount=0.1, kn_concentration=1.0,
                  tokenize_function=TreebankWordTokenizer().tokenize,
-                 normalize_function=lambda x: x.lower(),
-                 dict={}, unigrams={}, bigrams={}):
+                 normalize_function=lambda x: x.lower()):
         self._unk_cutoff = unk_cutoff
         self._jm_lambda = jm_lambda
         self._add_k = add_k
@@ -41,9 +39,9 @@ class BigramLanguageModel:
         self._normalizer = normalize_function
         
         # Add your code here!
-        self._dict = dict
-        self._unigrams = unigrams
-        self._bigrams = bigrams
+        self._dict = {}
+        self._unigrams = {}
+        self._bigrams = {}
 
     def get_k(self):
         return self._add_k
